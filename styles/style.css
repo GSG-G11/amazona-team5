@@ -113,6 +113,17 @@
   outline: none;
 }
 
+.buy{
+    font-size: 1.3rem;
+    margin: 20px auto;
+    color: white;
+    width: 80%;
+    height: 48px;
+    background-color: #A72626;
+    border-radius: 10px;
+}
+/* End cards container */
+
 .form-item-submit {
   display: flex;
   flex-direction: row;
@@ -134,3 +145,30 @@
 .form-submit-button:hover {
   background: #a72626e5;
 }
+
+/* start table style in seller page */
+.products-table{
+    text-align: center;
+    width: 90%;
+    margin: 15px auto;
+}
+.products-table th{
+    background-color: #d1d1d1;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 15px;
+}
+table tr td{
+    background-color: #f3f3f3;
+    font-size: 1.2rem;
+    padding: 10px;
+}
+.delete-item{
+    width: 80%;
+    height: 36px;
+    font-size: 1.1rem;
+    background-color:#A72626;
+    color: white;
+    border-radius: 5px;
+}
+/* end table style */
