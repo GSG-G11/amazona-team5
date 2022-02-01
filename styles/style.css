@@ -29,41 +29,88 @@
 }
 
 /* start cards container */
-.container{
-    width: 90%;
-    margin: 5% auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
+.container {
+  width: 90%;
+  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
 }
 
-.cards{
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
+.cards {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.card{
-    margin: 15px;
-    width: 30%;
-    background-color: #F2F2F2;
-    padding: 10px;
+.card {
+  margin: 15px;
+  width: 30%;
+  background-color: #f2f2f2;
+  padding: 10px;
 }
-.card-image{
-    width: 100%;
-    height: 50vh;
-    margin-bottom: 15px;
+.card-image {
+  width: 100%;
+  height: 50vh;
+  margin-bottom: 15px;
 }
-.card-body{
-    text-align: center;
+.card-body {
+  text-align: center;
 }
-.card-title{
-    margin-top: 15px;
-    font-size: 1.3rem;
-    margin: 5px;
+.card-title {
+  margin-top: 15px;
+  font-size: 1.3rem;
+  margin: 5px;
+}
+
+.buy {
+  font-size: 1.3rem;
+  margin: 20px auto;
+  color: white;
+  width: 80%;
+  height: 48px;
+  background-color: #a72626;
+  border-radius: 10px;
+}
+/* End cards container */
+
+.add-product-container {
+  width: 60%;
+  margin: 0 auto;
+}
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  justify-content: center;
+}
+.form-item {
+  display: flex;
+  flex-direction: column;
+}
+.form-label {
+  font-weight: bold;
+  line-height: 29px;
+  color: #000000;
+  margin-bottom: 4px;
+}
+.input {
+  background: #f3f3f3;
+  border: 0.5px solid #000000;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: none;
+  width: 433px;
+  height: 40px;
+}
+.input:active,
+.input:focus {
+  border: none;
+  outline: none;
 }
 
 .buy{
@@ -77,3 +124,24 @@
 }
 /* End cards container */
 
+.form-item-submit {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 100px;
+}
+
+.form-submit-button {
+  width: 216px;
+  height: 40px;
+  background: #a72626;
+  border-radius: 5px;
+  transition-duration: 0.4s;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.form-submit-button:hover {
+  background: #a72626e5;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="add-product-container">
+        <section class="add-product-form">
+            <div class="form-item">
+                <label class="form-label" for="product-name">Product Name:</label>
+                <input class="input" type="text" id="product-name" name="product-name" />
+            </div>
+            <div class="form-item">
+                <label class="form-label" for="product-details"> Details</label>
+                <input class="input" type="text" id="product-details" name="product-details" />
+            </div>
+            <div class="form-item">
+                <label class="form-label" for="product-image"> Product Image</label>
+                <input class="input" type="url" id="product-image" name="product-image" />
+            </div>
+            <div class="form-item">
+                <label class="form-label" for="product-price"> Price</label>
+                <input class="input" type="number" id="product-price" name="product-price" />
+            </div>
+            <div class="form-item-submit">
+                <div class="form-item">
+                    <label class="form-label" for="product-category"> Category</label>
+                    <select class="input" name="product-category" id="category">
+                        <option value="men">Men</option>
+                        <option value="women">Women</option>
+                        <option value="kids">Kids</option>
+                        <option value="sport">Sport</option>
+                    </select>
+                </div>
+                <div>
+                    <input class="form-submit-button" type="submit" value="Add to my cart">
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
