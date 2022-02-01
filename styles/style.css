@@ -1,59 +1,148 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
 }
-:root{
-    --main_color:white;
-    --secondary_color:gray;
+:root {
+  --main_color: white;
+  --secondary_color: gray;
 }
+
+/* start Header section */
+
+header {
+  display: grid;
+  place-items: center;
+}
+
+header .header-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--secondary_color);
+  padding: 20px;
+}
+
+header .left {
+  flex: 1;
+  display: flex;
+}
+
+header .left #logo {
+  margin-right: 30px;
+}
+
+header .left .seller-btn {
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 5px;
+  background: red;
+  color: white;
+}
+
+header .right {
+  text-align: end;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: 1;
+}
+
+header .right .search-bar {
+  padding: 10px;
+}
+header .right .search-bar input {
+  width: 350px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+header .right .cart-icon {
+  margin-right: 40px;
+
+  color: red;
+}
+header .right .add-item-btn {
+  padding: 10px 30px;
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+header .home-page-button {
+  padding: 10px 30px;
+  background: red;
+  color: white;
+  border: none;
+
+  cursor: pointer;
+  text-align: end;
+}
+
+@media (max-width: 768px) {
+  header .right {
+    flex-direction: column-reverse;
+  }
+
+  header .right .search-bar input {
+    width: 180px;
+  }
+}
+
+/* End Header section */
 
 /* start cards container */
-.container{
-    width: 90%;
-    margin: 5% auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
+.container {
+  width: 90%;
+  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
 }
 
-.cards{
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.card{
-    margin: 15px;
-    width: 30%;
-    background-color: #F2F2F2;
-    padding: 10px;
-}
-.card-image{
-    width: 100%;
-    height: 50vh;
-    margin-bottom: 15px;
-}
-.card-body{
-    text-align: center;
-}
-.card-title{
-    margin-top: 15px;
-    font-size: 1.3rem;
-    margin: 5px;
+.cards {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.buy{
-    font-size: 1.3rem;
-    margin: 20px auto;
-    color: white;
-    width: 80%;
-    height: 48px;
-    background-color: #A72626;
-    border-radius: 10px;
+.card {
+  margin: 15px;
+  width: 30%;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+.card-image {
+  width: 100%;
+  height: 50vh;
+  margin-bottom: 15px;
+}
+.card-body {
+  text-align: center;
+}
+.card-title {
+  margin-top: 15px;
+  font-size: 1.3rem;
+  margin: 5px;
+}
+
+.buy {
+  font-size: 1.3rem;
+  margin: 20px auto;
+  color: white;
+  width: 80%;
+  height: 48px;
+  background-color: #a72626;
+  border-radius: 10px;
 }
 /* End cards container */
