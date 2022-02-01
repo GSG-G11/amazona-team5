@@ -6,7 +6,7 @@
 }
 :root {
   --main_color: white;
-  --secondary_color: gray;
+  --secondary_color: #f3f3f3;
 }
 
 /* start Header */
@@ -99,6 +99,7 @@ header .home-page-button {
 
 .footer {
   width: 100%;
+  font-weight: bold;
   background-color: var(--secondary_color);
   display: flex;
   align-items: center;
@@ -236,28 +237,43 @@ header .home-page-button {
 }
 
 /* start table style in seller page */
-.products-table {
-  text-align: center;
-  width: 90%;
-  margin: 15px auto;
+.products-table{
+    text-align: center;
+    width: 90%;
+    margin: 15px auto;
 }
-.products-table th {
-  background-color: #d1d1d1;
-  font-size: 1.5rem;
-  padding: 10px;
-  margin: 15px;
+.products-table th{
+    background-color: #d1d1d1;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 15px;
 }
-table tr td {
-  background-color: #f3f3f3;
-  font-size: 1.2rem;
-  padding: 10px;
+table tr td{
+    background-color: #f3f3f3;
+    font-size: 1.2rem;
+    padding: 10px;
 }
-.delete-item {
-  width: 80%;
-  height: 36px;
-  font-size: 1.1rem;
-  background-color: #a72626;
-  color: white;
-  border-radius: 5px;
+.delete-item{
+    width: 80%;
+    height: 36px;
+    font-size: 1.1rem;
+    background-color:#A72626;
+    color: white;
+    border-radius: 5px;
 }
 /* end table style */
+
+/* start cart details style */
+.cart-details{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 50px auto;
+    background-color:#A72626;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+/* end cart details */
+
+  
