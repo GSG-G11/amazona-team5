@@ -108,8 +108,6 @@ header .home-page-button {
   height: 60px;
   color: #a72626;
   font-size: 15px;
-  position: absolute;
-  bottom: 0;
 }
 
 @media (max-width: 600px) {
@@ -277,3 +275,5 @@ table tr td{
     border-radius: 10px;
 }
 /* end cart details */
+
+  
