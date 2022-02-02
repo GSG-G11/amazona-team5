@@ -1,10 +1,10 @@
-let temp_all_products = JSON.parse(localStorage.getItem("products"))||[];
-let all_products =[...temp_all_products];
+let temp_allProducts = JSON.parse(localStorage.getItem("products")) || [];
+let allProducts = [...temp_allProducts];
 
-const renderProducsInIndexPage=(card_container , array_of_product)=>{
-    array_of_product.forEach(element => {
-    card_container.innerHTML +=
-    `
+const renderProducsInIndexPage = (card_container, array_of_product) => {
+  card_container.innerHTML = "";
+  array_of_product.forEach((element) => {
+    card_container.innerHTML += `
     <div class="card">
         <img src="${element.image}" class="card-image" />
         <div class="card-body">
@@ -14,10 +14,10 @@ const renderProducsInIndexPage=(card_container , array_of_product)=>{
             <button class="buy" id="add to chart">Add to Cart</button>
         </div>
     </div>
-    `
-});
-}
+    `;
+  });
+};
 
 const card_container = document.getElementById("cards-container");
 
-renderProducsInIndexPage(card_container ,all_products );
+renderProducsInIndexPage(card_container, allProducts);
