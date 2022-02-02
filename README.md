@@ -4,7 +4,6 @@
 - [Purpose](#purpose)
 - [User Stories](#user-stories)
 - [User Journey](#user-journey)
-- [Prototype](#prototype)
 - [Clone It](#clone-it)
 - [Tech Stack](#tech-stack)
 - [Team Members](#team-members)
@@ -48,7 +47,7 @@ Its an eCommerce website. Allow you as a user to buy products as a Buyer or sell
 - footer in the end of hte page.
 - From the **Seller** button you can open as a seller.
 - As a seller you will open a new page from it you can add product, display all your products, edit and delete them.
-- As a **Buyer** you can open you'r cart see total price and delete an item.
+- As a **Buyer** you can open you'r cart delete an item.
 
 ## Clone It 🖨 
 
