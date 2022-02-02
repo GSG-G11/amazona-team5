@@ -6,35 +6,37 @@ let product_category = document.getElementById("product-category");
 let product_submit = document.getElementById("product-submit");
 let temp_all_products = JSON.parse(localStorage.getItem("products")) || [];
 let all_products = [...temp_all_products];
-let product_table = document.getElementById("products-table");
+let product_table = document.querySelector(".products-table");
 let delete_product = document.getElementById("delete-item");
 const cardsContainer = document.querySelector("#cards-container");
 const searchBarInput = document.querySelector(".search-bar input");
-renderProductsInTable(product_table, all_products);
+
 adddeleteEvents();
 product_submit?.addEventListener("click", (e) => {
-  let temp_all_products = JSON.parse(localStorage.getItem("products")) || [];
-  let all_products = [...temp_all_products];
-  e.preventDefault;
-  let product = {
-    name: product_name.value,
-    details: product_details.value,
-    image: product_image.value,
-    price: product_price.value,
-    category: product_category.value,
-  };
-  // AddToProductsArray(product,all_products)
-  localStorage.setItem(
-    "products",
-    JSON.stringify(AddToProductsArray(product, all_products))
-  );
-  renderProductInTable(product_table, product);
-  adddeleteEvents();
+    let temp_all_products = JSON.parse(localStorage.getItem("products")) || [];
+    let all_products = [...temp_all_products];
+    e.preventDefault;
+    let product = {
+        name: product_name.value,
+        details: product_details.value,
+        image: product_image.value,
+        price: product_price.value,
+        category: product_category.value,
+    };
+    // AddToProductsArray(product,all_products)
+    localStorage.setItem(
+        "products",
+        JSON.stringify(AddToProductsArray(product, all_products))
+    );
+    renderProductInTable(product_table, product);
+    adddeleteEvents();
 });
 
 // ! this function render product in html table after add product submition
-function renderProductInTable(tableElement, product) {
-  tableElement.innerHTML += `      
+function renderProductInTable(tableElement, products) {
+    console.log(products);
+    products.map((product) => {
+        tableElement.innerHTML += `      
         <tr>
             <td>${product.name}</td>
             <td>${product.details}</td>
@@ -49,13 +51,15 @@ function renderProductInTable(tableElement, product) {
             </td>
         </tr>
         `;
+    });
 }
 
 // ! this function render  all products in html page after window ready
 function renderProductsInTable(tableElement, all_products) {
-  tableElement &&
-    all_products.forEach((element) => {
-      tableElement.innerHTML += `
+    tableElement.innerHTML = "";
+    tableElement &&
+        all_products.forEach((element) => {
+            tableElement.innerHTML += `
         <tr>
             <td>${element.name}</td>
             <td>${element.details}</td>
@@ -70,29 +74,55 @@ function renderProductsInTable(tableElement, all_products) {
             </td>
         </tr>
         `;
-    });
+        });
 }
 
 function adddeleteEvents() {
-  let temp_all_productWillDeleted =
-    JSON.parse(localStorage.getItem("products")) || [];
-  let all_productWillDeleted = [...temp_all_productWillDeleted];
-  let btns = document.querySelectorAll(".delete-item");
-  btns.forEach(function (btn) {
-    btn.addEventListener("click", function (e) {
-      e.preventDefault();
-      console.log(e.target.getAttribute("id"));
-      let id = e.target.getAttribute("id");
-      localStorage.setItem(
-        "products",
-        JSON.stringify(deleteElement(id, all_productWillDeleted))
-      );
+    let temp_all_productWillDeleted =
+        JSON.parse(localStorage.getItem("products")) || [];
+    let all_productWillDeleted = [...temp_all_productWillDeleted];
+    let btns = document.querySelectorAll(".delete-item");
+    btns.forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            let id = e.target.getAttribute("id");
+            localStorage.setItem(
+                "products",
+                JSON.stringify(deleteElement(id, all_productWillDeleted))
+            );
+        });
     });
-  });
 }
 
-searchBarInput.addEventListener("change", (e) => {
-  const searchBarInputValue = searchBarInput.value;
-  const searchedProduct = searchProduct(searchBarInputValue, all_products);
-  renderProducsInIndexPage(cardsContainer, searchedProduct);
+searchBarInput?.addEventListener("change", (e) => {
+    const searchBarInputValue = searchBarInput.value;
+    const searchedProduct = searchProduct(searchBarInputValue, all_products);
+    renderProducsInIndexPage(cardsContainer, searchedProduct);
 });
+
+const addBtn = document.querySelectorAll(".buy");
+
+addBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        let cart = JSON.parse(localStorage.getItem("cartProducts") || "[]");
+
+        e.preventDefault();
+        let id = e.target.getAttribute("id");
+        const product = all_products.find((product) => product.name === id);
+        cart.push(product);
+        localStorage.setItem("cartProducts", JSON.stringify(cart));
+    });
+});
+
+const renderCartTable = () => {
+    const cartProduct = JSON.parse(
+        localStorage.getItem("cartProducts") || "[]"
+    );
+
+    console.log(cartProduct);
+    renderProductsInTable(product_table, cartProduct);
+};
+
+window.onload = () => {
+    product_table && renderCartTable();
+};
