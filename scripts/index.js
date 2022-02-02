@@ -1,11 +1,3 @@
-/* ! in this file 
-==saleh T Marouf
-==what i do 
-== get data from form and pushig it to local storage
-== as seller you can add product to your store
-== as seller i can show all product in store 
-== as seller you can delete selected elezzz
-*/
 let product_name = document.getElementById("product-name");
 let product_details = document.getElementById("product-details");
 let product_image = document.getElementById("product-image");
@@ -36,12 +28,8 @@ product_submit.addEventListener('click', (e) => {
     adddeleteEvents()
 });
 
-
-
-
 // ! this function render product in html table after add product submition 
 function renderProductInTable(tableElement, product) {
-
     tableElement.innerHTML +=
         `      
         <tr>
@@ -58,8 +46,8 @@ function renderProductInTable(tableElement, product) {
             </td>
         </tr>
         `
-
 }
+
 // ! this function render  all products in html page after window ready  
 function renderProductsInTable(tableElement, all_products) {
     all_products.forEach(element => {
@@ -84,13 +72,15 @@ function renderProductsInTable(tableElement, all_products) {
 }
 
 function adddeleteEvents() {
+    let temp_all_productWillDeleted = JSON.parse(localStorage.getItem("products")) || [];
+    let all_productWillDeleted = [...temp_all_productWillDeleted];
     let btns = document.querySelectorAll('.delete-item');
     btns.forEach(function (btn) {
         btn.addEventListener('click', function (e) {
             e.preventDefault();
             console.log(e.target.getAttribute('id'));
             let id = e.target.getAttribute('id');
-            localStorage.setItem("products", JSON.stringify(deleteElement(id, all_products)));
+            localStorage.setItem("products", JSON.stringify(deleteElement(id, all_productWillDeleted)));
         })
     })
 }

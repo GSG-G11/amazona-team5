@@ -1,4 +1,3 @@
-
 let temp_all_products = JSON.parse(localStorage.getItem("products")) || [];
 let all_products = [...temp_all_products];
 
@@ -39,22 +38,12 @@ product_submit.addEventListener('click', (e) => {
 
 
 
-
-
-
-
-
-
-
-const findProduct = (name, array, product) => {
-    array.forEach(element => {
-        if (element.name == name) {
-            element = { ...product };
-        }
-    });
-    return array;
-}
+// const findProduct = (name, array, product) => {
+//     array.forEach(element => {
+//         if (element.name == name) {
+//             element = { ...product };
+//         }
+//     });
+//     return array;
+// }
 let product_name2 = window.location.search.substr(1).split("=")[1];
-console.log(product_name2);
-console.log('dddd');
-

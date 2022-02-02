@@ -4,11 +4,8 @@ var AddToProductsArray = (element, array) => {
         products.push(element);
         // localStorage.setItem("products", JSON.stringify(products));
         return products;
-  
-  
 }
 
-// 
 var deleteElement = (elementName , arrayOfPrOducts) => {
     let temp_array = []
     for (var i = 0; i < arrayOfPrOducts.length; i++) {
@@ -20,21 +17,5 @@ var deleteElement = (elementName , arrayOfPrOducts) => {
 }
 
 
-// function adddeleteEvents() {
-//     let btns = document.querySelectorAll('.delete-item');
-//     btns.forEach(function (btn) {
-//         btn.addEventListener('click', function (e) {
-//             e.preventDefault();
-//             let id = e.target.getAttribute('id');
-//             deleteElement(id ,all_products)
-//         })
-//     })
-// }
-
 
 module.exports ={AddToProductsArray , deleteElement};
-
-
-
-
-
