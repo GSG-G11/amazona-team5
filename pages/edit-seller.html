@@ -22,10 +22,7 @@
                 </a>
             </div>
             <div class="right">
-                <div class="search-bar">
-                    <input type="text" placeholder="search products" />
-                </div>
-                <button class="add-item-btn">Add item</button>
+                <a href="./seller.html">Seller Page </a>
             </div>
         </div>
         </div>
@@ -43,7 +40,7 @@
             </div>
             <div class="form-item">
                 <label class="form-label" for="product-image"> Product Image</label>
-                <input class="input" type="url" id="product-image" name="product-image" />
+                <input class="input" type="url" id="product-image" name="product-image" required/>
             </div>
             <div class="form-item">
                 <label class="form-label" for="product-price"> Price</label>
@@ -60,29 +57,12 @@
                     </select>
                 </div>
                 <div>
-                    <input id="product-submit" class="form-submit-button" type="submit" value="Add to my product">
+                    <button  id="product-submit-edit" class="form-submit-button" type="button" >Edit Product</button>
                 </div>
             </div>
         </section>
     </div>
-    <!-- start products table -->
-    <div class="table">
-        <table class="products-table" id="products-table">
-            <tr>
-                <th>Product Name</th>
-                <th>Description</th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Actions</th>
-            </tr>
-        
-        </table>
-    </div>
-    <!-- end products table -->
-
-    <script  src="../scripts/logic.js"></script>
-    <script  src="../scripts/index.js"></script>
-    <script  src="../logic.test.js"></script>
+    <script  src="../scripts/edit-seller.js"></script>
 
 </body>
 
