@@ -52,7 +52,7 @@
             <div class="form-item-submit">
                 <div class="form-item">
                     <label class="form-label" for="product-category"> Category</label>
-                    <select class="input" name="product-category" id="category">
+                    <select class="input" name="product-category" id="product-category">
                         <option value="men">Men</option>
                         <option value="women">Women</option>
                         <option value="kids">Kids</option>
@@ -60,14 +60,14 @@
                     </select>
                 </div>
                 <div>
-                    <input class="form-submit-button" type="submit" value="Add to my cart">
+                    <input id="product-submit" class="form-submit-button" type="submit" value="Add to my product">
                 </div>
             </div>
         </section>
     </div>
     <!-- start products table -->
     <div class="table">
-        <table class="products-table">
+        <table class="products-table" id="products-table">
             <tr>
                 <th>Product Name</th>
                 <th>Description</th>
@@ -75,44 +75,14 @@
                 <th>Price</th>
                 <th>Actions</th>
             </tr>
-            <tr>
-                <td>namin text</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td><button type="button" class="delete-item">Delete</button></td>
-            </tr>
-            <tr>
-                <td>namin text</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td><button type="button" class="delete-item">Delete</button></td>
-            </tr>
-            <tr>
-                <td>namin text</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td><button type="button" class="delete-item">Delete</button></td>
-            </tr>
-            <tr>
-                <td>namin text</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td><button type="button" class="delete-item">Delete</button></td>
-            </tr>
-            <tr>
-                <td>namin text</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td>dfgdfgdfg dfgdfg dfgdfg</td>
-                <td><button type="button" class="delete-item">Delete</button></td>
-            </tr>
+        
         </table>
     </div>
     <!-- end products table -->
+    <script  src="../scripts/logic.js"></script>
+    <script  src="../scripts/index.js"></script>
+    <script  src="../logic.test.js"></script>
+
 </body>
 
 </html>
