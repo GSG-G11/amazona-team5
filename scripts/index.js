@@ -10,11 +10,11 @@ let product_table = document.getElementById("products-table");
 let delete_product = document.getElementById("delete-item");
 
 renderProductsInTable(product_table, all_products);
-adddeleteEvents()
-product_submit.addEventListener('click', (e) => {
+adddeleteEvents();
+product_submit.addEventListener("click", (e) => {
     let temp_all_products = JSON.parse(localStorage.getItem("products")) || [];
     let all_products = [...temp_all_products];
-    e.preventDefault
+    e.preventDefault;
     let product = {
         name: product_name.value,
         details: product_details.value,
@@ -23,15 +23,17 @@ product_submit.addEventListener('click', (e) => {
         category: product_category.value,
     };
     // AddToProductsArray(product,all_products)
-    localStorage.setItem("products", JSON.stringify(AddToProductsArray(product, all_products)));
+    localStorage.setItem(
+        "products",
+        JSON.stringify(AddToProductsArray(product, all_products))
+    );
     renderProductInTable(product_table, product);
-    adddeleteEvents()
+    adddeleteEvents();
 });
 
-// ! this function render product in html table after add product submition 
+// ! this function render product in html table after add product submition
 function renderProductInTable(tableElement, product) {
-    tableElement.innerHTML +=
-        `      
+    tableElement.innerHTML += `      
         <tr>
             <td>${product.name}</td>
             <td>${product.details}</td>
@@ -45,14 +47,13 @@ function renderProductInTable(tableElement, product) {
                </form>
             </td>
         </tr>
-        `
+        `;
 }
 
-// ! this function render  all products in html page after window ready  
+// ! this function render  all products in html page after window ready
 function renderProductsInTable(tableElement, all_products) {
-    all_products.forEach(element => {
-        tableElement.innerHTML +=
-            `      
+    all_products.forEach((element) => {
+        tableElement.innerHTML += `      
         <tr>
             <td>${element.name}</td>
             <td>${element.details}</td>
@@ -66,21 +67,24 @@ function renderProductsInTable(tableElement, all_products) {
                </form>
             </td>
         </tr>
-        `
-
+        `;
     });
 }
 
 function adddeleteEvents() {
-    let temp_all_productWillDeleted = JSON.parse(localStorage.getItem("products")) || [];
+    let temp_all_productWillDeleted =
+        JSON.parse(localStorage.getItem("products")) || [];
     let all_productWillDeleted = [...temp_all_productWillDeleted];
-    let btns = document.querySelectorAll('.delete-item');
+    let btns = document.querySelectorAll(".delete-item");
     btns.forEach(function (btn) {
-        btn.addEventListener('click', function (e) {
+        btn.addEventListener("click", function (e) {
             e.preventDefault();
-            console.log(e.target.getAttribute('id'));
-            let id = e.target.getAttribute('id');
-            localStorage.setItem("products", JSON.stringify(deleteElement(id, all_productWillDeleted)));
-        })
-    })
+            console.log(e.target.getAttribute("id"));
+            let id = e.target.getAttribute("id");
+            localStorage.setItem(
+                "products",
+                JSON.stringify(deleteElement(id, all_productWillDeleted))
+            );
+        });
+    });
 }
