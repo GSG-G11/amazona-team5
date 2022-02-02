@@ -15,5 +15,12 @@ var deleteElement = (elementName, arrayOfPrOducts) => {
   }
   return temp_array;
 };
+// function search for any product
+const searchProduct = (productName, products) => {
+  const searechResult = products.filter((product) =>
+    product.name.includes(productName)
+  );
+  return searechResult;
+};
 
-module.exports = { AddToProductsArray, deleteElement };
+module.exports = { AddToProductsArray, deleteElement, searchProduct };
