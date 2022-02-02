@@ -1,20 +1,3 @@
-const defultProductArray = [
-  {
-    name: "product_name.value",
-    details: "product_details.value",
-    image: " product_image.value",
-    price: "product_price.value",
-    category: "product_category.value",
-  },
-  {
-    name: "product_name",
-    details: "product_details",
-    image: "product_image",
-    price: "product_price",
-    category: "product_category",
-  },
-];
-localStorage.setItem("products", JSON.stringify(defultProductArray));
 let product_name = document.getElementById("product-name");
 let product_details = document.getElementById("product-details");
 let product_image = document.getElementById("product-image");
