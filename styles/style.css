@@ -242,7 +242,18 @@ header .home-page-button {
     width: 90%;
     margin: 15px auto;
 }
+.products-table-cart{
+    text-align: center;
+    width: 90%;
+    margin: 15px auto;
+}
 .products-table th{
+    background-color: #d1d1d1;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 15px;
+}
+.products-table-cart th{
     background-color: #d1d1d1;
     font-size: 1.5rem;
     padding: 10px;
