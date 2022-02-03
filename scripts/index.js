@@ -49,18 +49,17 @@ function renderProductInTable(tableElement, product) {
                </form>
             </td>
         </tr>
-        `
+        `;
 }
 
 // ! this function render  all products in html page after window ready
 function renderProductsInTable(tableElement, all_products) {
-
     tableElement &&
         all_products.forEach((element) => {
             tableElement.innerHTML += `
         <tr>
             <td>${element.name}</td>
-            <td>${element.details}</td>
+            <td>${element.details}</td
             <td>${element.category}</td>
             <td>${element.price}</td>
             <td>
@@ -121,3 +120,19 @@ const renderCartTable = () => {
 };
 renderCartTable();
 
+// remove from cart
+const removeBtn = document.querySelectorAll(".delete-item");
+const productsCountEl = document.querySelector(".products-count");
+const totalPriceEl = document.querySelector(".total-price");
+
+removeBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        let cart = JSON.parse(localStorage.getItem("cartProducts"));
+        let id = e.target.getAttribute("id");
+        const newCart = deleteFromCart(cart, id);
+
+        localStorage.setItem("cartProducts", JSON.stringify(newCart) || "[]");
+        renderProductsInTable(product_table, newCart);
+        location.reload();
+    });
+});

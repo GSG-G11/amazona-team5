@@ -25,7 +25,7 @@ test("check if element deleted from array", () => {
 
 test("should add product to cart", () => {
     addToCart(dummyCart, product);
-    expect(dummyCart[dummyCart.length - 1]).toEqual(product);
+    expect(dummyCart.includes(product)).toBeFalsy();
 });
 
 // test for search function

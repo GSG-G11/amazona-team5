@@ -1,4 +1,3 @@
-let cart = [];
 // add product to array and push to local stora
 var AddToProductsArray = (element, array) => {
     let products = [...array];
@@ -19,7 +18,7 @@ var deleteElement = (elementName, arrayOfPrOducts) => {
 
 // function to add  product to the customer cart
 const addToCart = (cart, product) => cart.concat([product]);
-
+const deleteFromCart = (cart, id) => cart.filter((p) => p.name !== id);
 // function search for any product
 const searchProduct = (productName, products) => {
     const searechResult = products.filter((product) =>

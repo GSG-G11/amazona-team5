@@ -8,7 +8,7 @@ let product_price = document.getElementById("product-price");
 let product_category = document.getElementById("product-category");
 let product_submit = document.getElementById("product-submit-edit");
 let product_name2 = window.location.search.substr(1).split("=")[1];
-product_submit.addEventListener('click', (e) => {
+product_submit.addEventListener("click", (e) => {
     let temp_all_products = JSON.parse(localStorage.getItem("products")) || [];
     let all_products = [...temp_all_products];
     // console.log('dfff');
@@ -20,8 +20,8 @@ product_submit.addEventListener('click', (e) => {
         price: product_price.value,
         category: product_category.value,
     };
-    all_products.forEach(element => {
-        console.log(product_name2, element.name)
+    all_products.forEach((element) => {
+        console.log(product_name2, element.name);
         if (element.name == product_name2) {
             element.name = product.name;
             element.details = product.details;
@@ -34,9 +34,6 @@ product_submit.addEventListener('click', (e) => {
     localStorage.setItem("products", JSON.stringify(all_products));
 });
 // localStorage.setItem("products", JSON.stringify(findProduct(product_name2, all_products, product)));
-
-
-
 
 // const findProduct = (name, array, product) => {
 //     array.forEach(element => {
