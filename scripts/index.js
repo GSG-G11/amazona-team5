@@ -1,15 +1,16 @@
-let product_name = document.getElementById("product-name");
-let product_details = document.getElementById("product-details");
-let product_image = document.getElementById("product-image");
-let product_price = document.getElementById("product-price");
-let product_category = document.getElementById("product-category");
-let product_submit = document.getElementById("product-submit");
+const product_name = document.getElementById("product-name");
+const product_details = document.getElementById("product-details");
+const product_image = document.getElementById("product-image");
+const product_price = document.getElementById("product-price");
+const product_category = document.getElementById("product-category");
+const product_submit = document.getElementById("product-submit");
 let temp_all_products = JSON.parse(localStorage.getItem("products")) || [];
 let all_products = [...temp_all_products];
-let product_table = document.getElementById("products-table");
-let delete_product = document.getElementById("delete-item");
+const product_table = document.querySelector(".products-table");
+const delete_product = document.getElementById("delete-item");
 const cardsContainer = document.querySelector("#cards-container");
 const searchBarInput = document.querySelector(".search-bar input");
+
 renderProductsInTable(product_table, all_products);
 adddeleteEvents();
 product_submit?.addEventListener("click", (e) => {
@@ -34,7 +35,7 @@ product_submit?.addEventListener("click", (e) => {
 
 // ! this function render product in html table after add product submition
 function renderProductInTable(tableElement, product) {
-    tableElement.innerHTML += `      
+    tableElement.innerHTML += `   
         <tr>
             <td>${product.name}</td>
             <td>${product.details}</td>
@@ -49,6 +50,7 @@ function renderProductInTable(tableElement, product) {
             </td>
         </tr>
         `;
+}
 
 // ! this function render  all products in html page after window ready
 function renderProductsInTable(tableElement, all_products) {
@@ -80,18 +82,40 @@ function adddeleteEvents() {
     btns.forEach(function (btn) {
         btn.addEventListener("click", function (e) {
             e.preventDefault();
-            console.log(e.target.getAttribute("id"));
             let id = e.target.getAttribute("id");
             localStorage.setItem(
                 "products",
                 JSON.stringify(deleteElement(id, all_productWillDeleted))
             );
+            location.reload();
         });
     });
 }
 
-searchBarInput.addEventListener("change", (e) => {
+searchBarInput?.addEventListener("change", (e) => {
     const searchBarInputValue = searchBarInput.value;
     const searchedProduct = searchProduct(searchBarInputValue, all_products);
     renderProducsInIndexPage(cardsContainer, searchedProduct);
 });
+
+const addBtn = document.querySelectorAll(".buy");
+
+addBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        let cart = JSON.parse(localStorage.getItem("cartProducts") || "[]");
+        e.preventDefault();
+        let id = e.target.getAttribute("id");
+        const product = all_products.find((product) => product.name === id);
+        cart.push(product);
+        localStorage.setItem("cartProducts", JSON.stringify(cart));
+    });
+});
+// ! --------------------------
+const renderCartTable = () => {
+    let product_table = document.querySelector(".products-table-cart");
+    const cartProduct = JSON.parse(
+        localStorage.getItem("cartProducts") || "[]"
+    );
+    renderProductsInTable(product_table, cartProduct);
+};
+renderCartTable();
