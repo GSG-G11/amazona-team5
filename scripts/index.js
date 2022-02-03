@@ -1,16 +1,17 @@
-let product_name = document.getElementById("product-name");
-let product_details = document.getElementById("product-details");
-let product_image = document.getElementById("product-image");
-let product_price = document.getElementById("product-price");
-let product_category = document.getElementById("product-category");
-let product_submit = document.getElementById("product-submit");
+const product_name = document.getElementById("product-name");
+const product_details = document.getElementById("product-details");
+const product_image = document.getElementById("product-image");
+const product_price = document.getElementById("product-price");
+const product_category = document.getElementById("product-category");
+const product_submit = document.getElementById("product-submit");
 let temp_all_products = JSON.parse(localStorage.getItem("products")) || [];
 let all_products = [...temp_all_products];
-let product_table = document.querySelector(".products-table");
-let delete_product = document.getElementById("delete-item");
+const product_table = document.querySelector(".products-table");
+const delete_product = document.getElementById("delete-item");
 const cardsContainer = document.querySelector("#cards-container");
 const searchBarInput = document.querySelector(".search-bar input");
 
+renderProductsInTable(product_table, all_products);
 adddeleteEvents();
 product_submit?.addEventListener("click", (e) => {
     let temp_all_products = JSON.parse(localStorage.getItem("products")) || [];
@@ -33,10 +34,8 @@ product_submit?.addEventListener("click", (e) => {
 });
 
 // ! this function render product in html table after add product submition
-function renderProductInTable(tableElement, products) {
-    console.log(products);
-    products.map((product) => {
-        tableElement.innerHTML += `      
+function renderProductInTable(tableElement, product) {
+    tableElement.innerHTML += `   
         <tr>
             <td>${product.name}</td>
             <td>${product.details}</td>
@@ -50,13 +49,12 @@ function renderProductInTable(tableElement, products) {
                </form>
             </td>
         </tr>
-        `;
-    });
+        `
 }
 
 // ! this function render  all products in html page after window ready
 function renderProductsInTable(tableElement, all_products) {
-    tableElement.innerHTML = "";
+
     tableElement &&
         all_products.forEach((element) => {
             tableElement.innerHTML += `
@@ -90,6 +88,7 @@ function adddeleteEvents() {
                 "products",
                 JSON.stringify(deleteElement(id, all_productWillDeleted))
             );
+            location.reload();
         });
     });
 }
@@ -105,7 +104,6 @@ const addBtn = document.querySelectorAll(".buy");
 addBtn.forEach((btn) => {
     btn.addEventListener("click", (e) => {
         let cart = JSON.parse(localStorage.getItem("cartProducts") || "[]");
-
         e.preventDefault();
         let id = e.target.getAttribute("id");
         const product = all_products.find((product) => product.name === id);
@@ -113,16 +111,13 @@ addBtn.forEach((btn) => {
         localStorage.setItem("cartProducts", JSON.stringify(cart));
     });
 });
-
+// ! --------------------------
 const renderCartTable = () => {
+    let product_table = document.querySelector(".products-table-cart");
     const cartProduct = JSON.parse(
         localStorage.getItem("cartProducts") || "[]"
     );
-
-    console.log(cartProduct);
     renderProductsInTable(product_table, cartProduct);
 };
+renderCartTable();
 
-window.onload = () => {
-    product_table && renderCartTable();
-};
