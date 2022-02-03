@@ -136,3 +136,9 @@ removeBtn.forEach((btn) => {
         location.reload();
     });
 });
+
+// set total price and products count
+const cart = JSON.parse(localStorage.getItem("cartProducts"));
+const totalPrice = getTotalPrice(cart);
+productsCountEl.innerText = `Number of products : ${cart.length}`;
+totalPriceEl.innerText = `Total Price : ${totalPrice}$`;

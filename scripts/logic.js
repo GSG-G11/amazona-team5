@@ -27,6 +27,10 @@ const searchProduct = (productName, products) => {
     return searechResult;
 };
 
+// function to get Total price
+const getTotalPrice = (cart) =>
+    cart.map((p) => p.price).reduce((acc, cu) => Number(acc) + Number(cu), 0);
+
 module.exports = {
     AddToProductsArray,
     deleteElement,
